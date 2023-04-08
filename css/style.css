@@ -1,0 +1,143 @@
+@import url('https://fonts.cdnfonts.com/css/8bit-wonder');
+
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background-image: url(../images/background.gif);
+    background-repeat: repeat-x;
+    background-size: 100%;
+    background-color: #d07eff;
+}
+
+.points, .score
+{
+    font-family: '8BIT WONDER', sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 50px;
+    position: absolute;
+    right: 100px;
+}
+
+.score
+{
+    margin-top: 60px;
+}
+
+.game-board 
+{
+    height: 35em;
+    width: 75em;
+    max-width: 75em;
+    max-height: 35em;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../images/background.jpg');
+    background-size: 120%;
+    background-repeat: no-repeat;
+    border-bottom: #b65beb 10px solid;
+    z-index: -2;
+
+}
+
+.pipe 
+{
+    position: absolute;
+    bottom: 0;
+    margin: -25px;
+    width: 120px;
+    animation: pipe-animation 2.5s infinite linear;
+}
+
+.gay-cat
+{
+    width: 180px;
+    position: absolute;
+    bottom: 0px;
+    margin-left: 100px;
+    margin-bottom: -62px;
+}
+
+.jump
+{
+    animation: jump 500ms ease-out;
+}
+
+.clouds
+{
+    width: 60%;
+    position: absolute;
+    animation: clouds-frame 100s infinite linear;
+    z-index: -1;
+}
+
+.laughing-dog
+{
+    margin: 100px auto;
+    display: block;
+}
+
+.PARABENS
+{
+    width: 50%;
+    margin: 10px auto;
+    display: block;
+}
+
+@keyframes clouds-frame {
+    from
+    {
+        right: -80%;
+    }
+    to 
+    {
+        right: 100%;
+    }
+}
+
+@keyframes pipe-animation 
+{
+    from 
+    {
+        right: -110px;
+    }
+
+    to 
+    {
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0% 
+    {
+        bottom: 0px;
+    }
+
+    30%
+    {
+        bottom: 120px;
+    }
+
+    50%
+    {
+        bottom: 120px;
+    }
+
+    60%
+    {
+        bottom: 120px;
+    }
+
+    100%
+    {
+        bottom: 0;
+    }
+}
