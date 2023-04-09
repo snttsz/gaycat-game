@@ -1,22 +1,19 @@
 @import url('https://fonts.cdnfonts.com/css/8bit-wonder');
 
-* 
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body
-{
+body {
     background-image: url(../images/background.gif);
     background-repeat: repeat-x;
     background-size: 100%;
     background-color: #d07eff;
 }
 
-.points, .score
-{
+.points, .score {
     font-family: '8BIT WONDER', sans-serif;
     font-weight: bold;
     color: black;
@@ -25,17 +22,14 @@ body
     right: 100px;
 }
 
-.score
-{
+.score {
     margin-top: 60px;
 }
 
-.game-board 
-{
+.game-board {
     height: 35em;
-    width: 75em;
+    width: 100%;
     max-width: 75em;
-    max-height: 35em;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -44,11 +38,16 @@ body
     background-repeat: no-repeat;
     border-bottom: #b65beb 10px solid;
     z-index: -2;
-
 }
 
-.pipe 
-{
+@media (min-width: 768px) {
+  .game-board {
+    height: 50em;
+    width: 80%;
+  }
+}
+
+.pipe {
     position: absolute;
     bottom: 0;
     margin: -25px;
@@ -56,88 +55,77 @@ body
     animation: pipe-animation 2.5s infinite linear;
 }
 
-.gay-cat
-{
+.gay-cat {
     width: 180px;
     position: absolute;
     bottom: 0px;
-    margin-left: 100px;
+    margin-left: 10%;
     margin-bottom: -62px;
 }
 
-.jump
-{
+@media (min-width: 768px) {
+  .gay-cat {
+    margin-left: 15%;
+  }
+}
+
+.jump {
     animation: jump 500ms ease-out;
 }
 
-.clouds
-{
+.clouds {
     width: 60%;
     position: absolute;
     animation: clouds-frame 100s infinite linear;
     z-index: -1;
 }
 
-.laughing-dog
-{
-    margin: 100px auto;
+.laughing-dog {
+    margin: 10% auto;
     display: block;
 }
 
-.PARABENS
-{
+.PARABENS {
     width: 50%;
     margin: 10px auto;
     display: block;
 }
 
 @keyframes clouds-frame {
-    from
-    {
+    from {
         right: -80%;
     }
-    to 
-    {
+    to {
         right: 100%;
     }
 }
 
-@keyframes pipe-animation 
-{
-    from 
-    {
+@keyframes pipe-animation {
+    from {
         right: -110px;
     }
-
-    to 
-    {
+    to {
         right: 100%;
     }
 }
 
 @keyframes jump {
-    0% 
-    {
+    0% {
         bottom: 0px;
     }
-
-    30%
-    {
+    30% {
         bottom: 120px;
     }
-
-    50%
-    {
+    50% {
         bottom: 120px;
     }
-
-    60%
-    {
+    60% {
         bottom: 120px;
     }
-
-    100%
-    {
+    70% {
+        bottom: 120px;
+    }
+    100% {
         bottom: 0;
     }
 }

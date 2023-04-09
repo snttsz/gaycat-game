@@ -12,16 +12,27 @@ img.src ='./images/PARABENS.png';
 img2.classList.add('laughing-dog');
 img.classList.add('PARABENS');
 
+
 var hasjumped;
+var lastscor;
+var lastJumpTime = 0;
+const jumpInterval = 1000; // interval between jumps in milliseconds
+
 
 const jump = () => 
 {
-    hasjumped = true;
-    gay_cat.classList.add('jump');
+    const currentTime = Date.now();
+    console.log(currentTime)
+    if (currentTime - lastJumpTime > jumpInterval) 
+    {
+        hasjumped = true;
+        gay_cat.classList.add('jump');
 
-    setTimeout(() => {
-        gay_cat.classList.remove('jump');
-    }, 500);
+        setTimeout(() => {
+            gay_cat.classList.remove('jump');
+        }, 500);
+        lastJumpTime = currentTime;
+    }
 }
 
 const loop = setInterval(() => {
@@ -31,7 +42,7 @@ const loop = setInterval(() => {
     const dead_catPosition = gay_catPosition;
     const scoreTime = +score.textContent;
     
-    if (pipePosition <= 220 && pipePosition > 100 && gay_catPosition < 70)
+    if (pipePosition <= 280 && pipePosition > 180 && gay_catPosition < 70)
     {
         pipe.style.left = `${pipePosition}px`;
         pipe.style.animation = 'none';
@@ -63,15 +74,23 @@ const loop = setInterval(() => {
 
         clearInterval(loop);
         
+        document.addEventListener('keydown', (event) => {
+            if (event.code === 'Space') {
+                location.reload();
+            }
+        });
+    
     }
-    else if (pipePosition < 220 && hasjumped == true)
+    else if (pipePosition < 280 && hasjumped == true)
     {
         score.textContent = `${scoreTime + 1}`;
         hasjumped = false;
+        sleep(1000);
     }
     else if (+score.textContent == lastscor + 10)
     {
         lastscor = +score.textContent;
+        scoreUpdated = false; // reset the variable when the pipe pass changes
     
         setTimeout(() => {
             pipe.style.animation = `pipe-animation ${animationTime - 0.2}s infinite linear`
@@ -81,6 +100,3 @@ const loop = setInterval(() => {
 
 
 document.addEventListener('keydown', jump);
-    
-
-
