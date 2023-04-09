@@ -85,7 +85,7 @@ const loop = setInterval(() => {
     {
         score.textContent = `${scoreTime + 1}`;
         hasjumped = false;
-        sleep(1000);
+
     }
     else if (+score.textContent == lastscor + 10)
     {
