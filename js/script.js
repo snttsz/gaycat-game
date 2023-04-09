@@ -94,7 +94,6 @@ const loop = setInterval(() => {
     {
         lastscor += +score.textContent;
         animationTime -= 0.2;
-        console.log(animationTime);
 
         setTimeout(() => {
             pipe.style.animation = `pipe-animation ${animationTime}s infinite linear`

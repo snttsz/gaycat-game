@@ -41,7 +41,7 @@ body {
     z-index: -2;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) { 
   .game-board {
     height: 60em;
     width: 80%;
