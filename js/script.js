@@ -14,15 +14,15 @@ img.classList.add('PARABENS');
 
 
 var hasjumped;
-var lastscor;
+var lastscor = 10;
 var lastJumpTime = 0;
-const jumpInterval = 1000; // interval between jumps in milliseconds
+var jumpInterval = 1000; // interval between jumps in milliseconds
+var animationTime = 2.5;
 
 
 const jump = () => 
 {
     const currentTime = Date.now();
-    console.log(currentTime)
     if (currentTime - lastJumpTime > jumpInterval) 
     {
         hasjumped = true;
@@ -32,6 +32,10 @@ const jump = () =>
             gay_cat.classList.remove('jump');
         }, 500);
         lastJumpTime = currentTime;
+    }
+    if (lastscor % 10 == 0)
+    {
+        jumpInterval -=10; 
     }
 }
 
@@ -62,7 +66,7 @@ const loop = setInterval(() => {
         div.style.backgroundImage = 'none';
         div.style.borderBottom = 'none';
 
-        score.textContent, points.textContent = ''
+        score.textContent, points.textContent = '';
 
 
         div.appendChild(img);
@@ -85,13 +89,11 @@ const loop = setInterval(() => {
     {
         score.textContent = `${scoreTime + 1}`;
         hasjumped = false;
-
     }
-    else if (+score.textContent == lastscor + 10)
+    else if (+score.textContent == lastscor)
     {
         lastscor = +score.textContent;
-        scoreUpdated = false; // reset the variable when the pipe pass changes
-    
+
         setTimeout(() => {
             pipe.style.animation = `pipe-animation ${animationTime - 0.2}s infinite linear`
         }, 500);
