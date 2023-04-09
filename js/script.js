@@ -92,11 +92,14 @@ const loop = setInterval(() => {
     }
     else if (+score.textContent == lastscor)
     {
-        lastscor = +score.textContent;
+        lastscor += +score.textContent;
+        animationTime -= 0.2;
+        console.log(animationTime);
 
         setTimeout(() => {
-            pipe.style.animation = `pipe-animation ${animationTime - 0.2}s infinite linear`
-        }, 500);
+            pipe.style.animation = `pipe-animation ${animationTime}s infinite linear`
+        }, 1000);
+
     }
 }, 10);
 

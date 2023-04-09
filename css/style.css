@@ -27,7 +27,8 @@ body {
 }
 
 .game-board {
-    height: 35em;
+    height: 50vh; /* change the height value to a responsive unit */
+    max-height: 40em;
     width: 100%;
     max-width: 75em;
     margin: 0 auto;
@@ -42,7 +43,7 @@ body {
 
 @media (min-width: 768px) {
   .game-board {
-    height: 50em;
+    height: 60em;
     width: 80%;
   }
 }
